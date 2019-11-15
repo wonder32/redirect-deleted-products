@@ -2,13 +2,11 @@
 
 WordPress - WooCommerce - create redirect if product is deleted 
 
+
 | Logo     | Links |
-| ![puddinq](https://www.puddinq.com/wp-content/uploads/2016/10/logo.png) | 
-* Project: [https://github.com/wonder32/redirect-deleted-products](https://github.com/wonder32/redirect-deleted-products)
-* Website: [puddinq.com](https://www.puddinq.com/) 
-* Twitter: [@schotvs](http://twitter.com/schotvs)
-* Author : [Stefan Schotvanger](https://www.puddinq.mobi/wip/stefan-schotvanger/) // [@schotvs](http://www.puddinq.mobi/wip/profiel/)
-|
+| :---      | :--- |
+| ![puddinq](https://www.puddinq.com/wp-content/uploads/2016/10/logo.png) | * Project: [https://github.com/wonder32/redirect-deleted-products](https://github.com/wonder32/redirect-deleted-products)  <br />* Website: [puddinq.com](https://www.puddinq.com/) <br/>* Twitter: [@schotvs](http://twitter.com/schotvs) <br>* Author : [Stefan Schotvanger](https://www.puddinq.mobi/wip/stefan-schotvanger/) // [@schotvs](http://www.puddinq.mobi/wip/profiel/) |
+
 ## Install
 ```git
 $ git clone git@github.com:wonder32/redirect-deleted-products.git
