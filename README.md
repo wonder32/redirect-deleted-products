@@ -17,15 +17,15 @@ $ git clone git@github.com:wonder32/redirect-deleted-products.git
 
 1. The url for a deleted product is saved automatically
 2. In the admin view you can choose:
-  * Do nothing
-  * Redirect to category ( 301 or 302 )
-  * Redirect to other product ( 301 or 302 )
-  * Redirect to main shop page ( 301 or 302 )
-3. When the url is called
-  a) WordPress checks if the product exists (you might have recreated it)
-  b) If not, WordPress will try the 404, but before it serves it, it will check the list
-  c) 
+    * Do nothing
+    * Redirect to category ( 301 or 302 )
+    * Redirect to other product ( 301 or 302 )
+    * Redirect to main shop page ( 301 or 302 )
+3. When the url is called:
+    * WordPress checks if the product exists (you might have recreated it)
+    * If not, WordPress will try the 404, but before it serves it, it will check the list
+    * Your deleted product will be served search engine friendly 
  
-
 ## changelog
-* 0.1 16-11-2019 init
+* 0.2 16-11-2019 composer package
+* 0.1 15-11-2019 init

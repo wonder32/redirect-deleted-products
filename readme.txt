@@ -3,19 +3,25 @@ Contributors: Stefan Schotvanger
 Tags: WooCommerce, redirect, deleted, products
 Requires at least: 5.2.3
 Tested up to: 5.2.3
-Stable tag: 0.1
+Stable tag: 0.2
 License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Puddinq Dashboard is a lightweight facelift for the wp-admin dashboard.
+Redirect deleted products - creates a customisable redirect for Deleted WooCommerce products.
 
 == Description ==
-Puddinq Dashboard is a lightweight facelift for the admin dashboard. Hide widgets, customeize styling.
+Redirect deleted products - creates a customisable redirect for Deleted WooCommerce products.
 
- * Hide widgets
- * Change logo in adminbar
- * Change the color of the dashboard
- * Change widget bead and body color
+1. The url for a deleted product is saved automatically
+2. In the admin view you can choose:
+    * Do nothing
+    * Redirect to category ( 301 or 302 )
+    * Redirect to other product ( 301 or 302 )
+    * Redirect to main shop page ( 301 or 302 )
+3. When the url is called:
+    * WordPress checks if the product exists (you might have recreated it)
+    * If not, WordPress will try the 404, but before it serves it, it will check the list
+    * Your deleted product will be served search engine friendly
 
 == Installation ==
 = 3 ways =
@@ -24,14 +30,7 @@ Puddinq Dashboard is a lightweight facelift for the admin dashboard. Hide widget
 * Find the plugin and press install (WordPress plugins)
 
 == Frequently Asked Questions ==
-**Does it have a frontend effect?**
 
-Aprt from the admin bar, visible at the frondend (logo option)
-No, the plugin is only active in the backend.
-
-**How can I undo all?**
-
-If you deactivate the plugin all settings are removed.
 
 
 == Screenshots ==
@@ -41,15 +40,11 @@ If you deactivate the plugin all settings are removed.
 
 == Changelog ==
 
-= 0.1 =
-* Settings screen
-* Initial functions
-* Tested
-
+= 0.2 =
+* Composer package
 == Upgrade Notice ==
 = 0.1 =
-* Nice colors
-* Tested version
+* Initial creation
 
 == Translations ==
 
