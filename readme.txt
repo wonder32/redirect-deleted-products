@@ -3,7 +3,7 @@ Contributors: Stefan Schotvanger
 Tags: WooCommerce, redirect, deleted, products
 Requires at least: 5.2.3
 Tested up to: 5.2.3
-Stable tag: 0.2
+Stable tag: 0.3
 License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,17 +34,21 @@ Redirect deleted products - creates a customisable redirect for Deleted WooComme
 
 
 == Screenshots ==
-1. After installation go to the settings page ( settings -> puddinq dashboard)
-2. Activate widgets, logo or color change and select an image or color
-3. Effect
+
 
 == Changelog ==
 
+= 0.3 =
+* WordPress update functionality
+
 = 0.2 =
 * Composer package
-== Upgrade Notice ==
+
 = 0.1 =
 * Initial creation
+
+== Upgrade Notice ==
+
 
 == Translations ==
 

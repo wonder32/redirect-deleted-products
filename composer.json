@@ -2,11 +2,19 @@
   "name": "puddinq/redirect-delted-products",
   "description": "WordPress Plugin - Upload your CSV and verify every redirect is working",
   "type": "wordpress-plugin",
-  "version": "v0.1.0",
+  "version": "v0.3",
   "license": "GPL-2.0-or-later",
   "repository": {
     "type": "git",
     "url": "git@github.com:wonder32/redirect-deleted-products.git"
+  },
+  "icons" : {
+    "1x" : "https://plugins.puddinq.com/updates/icons/redirect-deleted-products-128x128.png",
+    "2x" : "https://plugins.puddinq.com/updates/icons/redirect-deleted-products-256x256.png"
+  },
+  "banners": {
+    "low": "https://plugins.puddinq.com/updates/banners/redirect-deleted-products-772x250.png",
+    "high": "https://plugins.puddinq.com/updates/banners/redirect-deleted-products-1544x500.png"
   },
   "authors": [
     {

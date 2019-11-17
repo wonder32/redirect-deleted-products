@@ -1,4 +1,4 @@
-# [puddinqs](http://www.puddinq.com)
+# [puddinq](http://www.puddinq.com) - 
 
 WordPress - WooCommerce - create redirect if product is deleted 
 
@@ -22,6 +22,12 @@ WordPress - WooCommerce - create redirect if product is deleted
     * Your deleted product will be served search engine friendly 
  
 ## Install
+
+#### Download zip
+Get latest version from: [Download page](https://www.puddinq.com/plugins/redirect-deleted-products/)
+* Use the plugin upload functionality to upload the zip and install the plugin.
+* Extract to contents of the zip to the plugins directory of your installation.
+
 ###git
 ```git
 $ git clone git@github.com:wonder32/redirect-deleted-products.git
@@ -44,5 +50,6 @@ composer require puddinq/redirect-deleted-products
 ```
 
 ## changelog
+* 0.3 17-11-2019 WordPress update functionality
 * 0.2 16-11-2019 composer package
 * 0.1 15-11-2019 init
