@@ -1,5 +1,5 @@
 {
-  "name": "puddinq/redirect-delted-products",
+  "name": "puddinq/redirect-deleted-products",
   "description": "WordPress Plugin - Upload your CSV and verify every redirect is working",
   "type": "wordpress-plugin",
   "version": "v0.3",
@@ -29,6 +29,6 @@
     }
   },
   "require": {
-    "yahnis-elsts/plugin-update-checker": "^4.6"
+    "yahnis-elsts/plugin-update-checker": "4.8.1"
   }
 }

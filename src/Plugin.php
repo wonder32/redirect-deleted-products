@@ -31,9 +31,9 @@ class Plugin
     {
         // only load file if it has not been loaded
         if (is_admin()) {
-            $map_geo_update_checker = \Puc_v4_Factory::buildUpdateChecker(
+            \Puc_v4_Factory::buildUpdateChecker(
                 'https://plugins.puddinq.com/updates/?action=get_metadata&slug=simple-301-redirects-bulk-check',
-                REDIRECT_DELETED_PRODUCTS
+                REDIRECT_DELETED_PRODUCTS_FILE
             );
         }
     }

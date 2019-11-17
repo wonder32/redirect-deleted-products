@@ -35,7 +35,7 @@ $ git clone git@github.com:wonder32/redirect-deleted-products.git
 ```
 
 ### composer
-Add packeges to your composer file
+Add packages to your composer file
 ```
 {
   "repositories": [{
@@ -50,6 +50,7 @@ composer require puddinq/redirect-deleted-products
 ```
 
 ## changelog
+* 0.4 tested base plugin version
 * 0.3 17-11-2019 WordPress update functionality
 * 0.2 16-11-2019 composer package
 * 0.1 15-11-2019 init

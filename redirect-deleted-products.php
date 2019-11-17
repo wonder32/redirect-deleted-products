@@ -3,7 +3,7 @@
 Plugin Name: Redirect deleted products
 Plugin URI:  https://www.puddinq.com/plugins/redirect-deleted-products/
 Description: Blank plugin to create different sorts of new ones
-Version:     0.3
+Version:     0.4
 Author:      Stefan Schotvanger
 Author URI:  http://www.puddinq.nl/wip/stefan-schotvanger/
 License:     GPL2
@@ -18,6 +18,7 @@ Domain path: /languages/
  */
 
 define('REDIRECT_DELETED_PRODUCTS', __DIR__);
+define('REDIRECT_DELETED_PRODUCTS_FILE', __FILE__);
 
 /**
  * autoloader
