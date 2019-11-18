@@ -2,7 +2,7 @@
   "name": "puddinq/redirect-deleted-products",
   "description": "WordPress Plugin - Upload your CSV and verify every redirect is working",
   "type": "wordpress-plugin",
-  "version": "v0.3",
+  "version": "v0.5",
   "license": "GPL-2.0-or-later",
   "repository": {
     "type": "git",

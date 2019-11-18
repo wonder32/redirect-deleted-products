@@ -3,7 +3,7 @@ Contributors: Stefan Schotvanger
 Tags: WooCommerce, redirect, deleted, products
 Requires at least: 5.2.3
 Tested up to: 5.2.3
-Stable tag: 0.4
+Stable tag: 0.5
 License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,9 @@ Redirect deleted products - creates a customisable redirect for Deleted WooComme
 
 
 == Changelog ==
+
+= 0.5 3 steps =
+* Setop 3 step functionality
 
 = 0.4 working base plugin =
 * Bugs

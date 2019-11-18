@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sscho
- * Date: 13/09/2017
- * Time: 20:35
- */
 
 namespace RedirectDeletedProducts;
-
 
 class Filter
 {
