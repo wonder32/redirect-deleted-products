@@ -28,5 +28,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 $plugin = new Plugin();
 
 if (is_admin()) {
-    $admin_page = new AdminPage();
+// step 1 save information on delete
+    new GhostPost();
+// step 2 management page
+    new AdminPage();
 }
