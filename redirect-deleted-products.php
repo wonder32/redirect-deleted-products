@@ -24,8 +24,13 @@ define('REDIRECT_DELETED_PRODUCTS_FILE', __FILE__);
 require_once __DIR__ . '/vendor/autoload.php';
 
 
-
-$plugin = new Plugin();
+/**
+ * Base plugin
+ * - check for updates
+ * - load text domain
+ * - create redirect file
+ */
+new Plugin();
 
 if (is_admin()) {
 // step 1 save information on delete
@@ -33,3 +38,6 @@ if (is_admin()) {
 // step 2 management page
     new AdminPage();
 }
+
+// step 3 redirect if needed
+//    new PossibleRedirect();

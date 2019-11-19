@@ -19,7 +19,9 @@ class GhostPost
     public function saveGhost($id)
     {
         if (get_post_type($id) === 'product') {
-
+            $redirectFile = fopen(wp_upload_dir()['basedir'] . '/redirect-deleted-products.txt', "w");
+            fwrite($redirectFile,  get_the_permalink($id) . "\n");
+            fclose($redirectFile);
         }
     }
 
