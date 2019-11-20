@@ -4,6 +4,8 @@
 namespace RedirectDeletedProducts;
 
 
+use RedirectDeletedProducts\Helpers\ProductInformation;
+
 class GhostPost
 {
 
@@ -14,6 +16,7 @@ class GhostPost
         $this->filter = new Filter();
 
         $this->filter->add_action('delete_post', $this, 'saveGhost', '20');
+        $this->filter->add_action('wp_trash_post', $this, 'saveGhost', '20');
 
         $this->filter->run();
     }
@@ -21,28 +24,24 @@ class GhostPost
     public function saveGhost($id)
     {
         if (get_post_type($id) === 'product') {
-            $url = str_replace('__trashed', '', get_the_permalink($id));
-            $url = str_replace(get_site_url(), '', $url);
 
-            $product = wc_get_product($id);
-            $terms = $product->get_category_ids();
+            $redirectFile = file(wp_upload_dir()['basedir'] . '/redirect-deleted-products.txt', FILE_SKIP_EMPTY_LINES);
 
-            $category_urls = array();
-            if (!empty($terms)) {
-                foreach ($terms as $term) {
-                    $category_urls[] = str_replace(get_site_url(), '', get_term_link($term->term_id, 'product_cat'));
+            $add = true;
+            foreach ($redirectFile as &$line) {
+                $line = explode('|', $line);
+                if ($line[0] === $id) {
+                    $add = false;
+                    break;
                 }
             }
 
-            $info = array(
-                'url' => $url,
-                'category' => implode('@', $category_urls),
-                'shop' => str_replace(get_site_url(), '', get_permalink(wc_get_page_id('shop')))
-            );
-
-            $redirectFile = fopen(wp_upload_dir()['basedir'] . '/redirect-deleted-products.txt', "a+");
-            fwrite($redirectFile, implode('|', $info) . "\n");
-            fclose($redirectFile);
+            if ($add) {
+                $productInformation = new ProductInformation($id);
+                $redirectFile = fopen(wp_upload_dir()['basedir'] . '/redirect-deleted-products.txt', "a+");
+                fwrite($redirectFile, implode('|', $productInformation->getinformation()) . "\n");
+                fclose($redirectFile);
+            }
         }
     }
 

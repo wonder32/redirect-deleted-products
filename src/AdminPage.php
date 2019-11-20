@@ -8,6 +8,8 @@
 
 namespace RedirectDeletedProducts;
 
+use RedirectDeletedProducts\Helpers\TableInformation;
+
 class AdminPage
 {
 
@@ -38,6 +40,8 @@ class AdminPage
     // page output
     public function pageOutput()
     {
+        $rows = new TableInformation();
+
         echo '<div class="wrap redirect-deleted-products">';
         echo '<h2>' . __('Redirect deleted products', 'redirect-deleted-products') . '</h2>';
 
@@ -60,6 +64,8 @@ TABLEHEAD;
             __('Redirect to', 'redirect-deleted-products'),
             __('301 / 302 / non', 'redirect-deleted-products')
         );
+
+        echo $row;
 
         $tableFooter = <<<TABLEFOOT
 
