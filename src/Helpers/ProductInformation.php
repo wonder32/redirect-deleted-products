@@ -36,13 +36,13 @@ class ProductInformation
     {
         $terms = $this->product->get_category_ids();
 
-        $category_urls = array();
+        $category_ids = [];
         if (!empty($terms)) {
             foreach ($terms as $term) {
-                $category_urls[] = str_replace(get_site_url(), '', get_term_link($term, 'product_cat'));
+                $category_ids[] = $term;
             }
         }
-        $this->information['categories'] = implode('@', $category_urls);
+        $this->information['categories'] = implode('@', $category_ids);
     }
 
     public function getShop()

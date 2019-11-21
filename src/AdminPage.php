@@ -53,6 +53,7 @@ class AdminPage
         <th>%s</th>
         <th>%s</th>
         <th>%s</th>
+        <th>%s</th>
         </tr>
         </thead>
         <tbody>
@@ -60,7 +61,9 @@ TABLEHEAD;
 
         printf(
             $tableHead,
+            __('ID', 'redirect-deleted-products'),
             __('Old url', 'redirect-deleted-products'),
+            __('Optional redirects', 'redirect-deleted-products'),
             __('Redirect to', 'redirect-deleted-products'),
             __('301 / 302 / non', 'redirect-deleted-products')
         );

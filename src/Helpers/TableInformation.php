@@ -31,6 +31,33 @@ class TableInformation
 
     public function returnRow($line) {
 
+        $elements = explode('|', $line);
+
+        $out = '<tr>';
+
+        $out .= "<td>{$elements[0]}</td>";
+        $out .= "<td>{$elements[1]}</td>";
+
+        $links = explode('@', $elements[2]);
+
+//        str_replace(get_site_url(), '', get_term_link($term, 'product_cat'));
+        $out .= '<select id = "myList">';
+
+        foreach ($links as $link) {
+            $category = str_replace(get_site_url(), '', get_term_link($link, 'product_cat'));
+            echo '<option value = "' . $category . '">Category: ' . $category . '</option>';
+        }
+
+        $out .= '<option value = "4">Shop - ' . $elements[3] . '</option>';
+        $out .= '</select>';
+
+        $out .= "<td>{$elements[4]}</td>";
+        $out .= "<td>{$elements[5]}</td>";
+
+        $out .= '</tr>';
+
+        return $out;
+
     }
 
 }
