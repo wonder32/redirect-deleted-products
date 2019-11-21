@@ -65,7 +65,7 @@ TABLEHEAD;
             __('301 / 302 / non', 'redirect-deleted-products')
         );
 
-        echo $row;
+        $rows->printRows();
 
         $tableFooter = <<<TABLEFOOT
 

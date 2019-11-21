@@ -42,7 +42,7 @@ class ProductInformation
                 $category_urls[] = str_replace(get_site_url(), '', get_term_link($term, 'product_cat'));
             }
         }
-        $this->information['categories'] = implode('@',$category_urls);
+        $this->information['categories'] = implode('@', $category_urls);
     }
 
     public function getShop()
