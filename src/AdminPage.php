@@ -54,6 +54,7 @@ class AdminPage
         <th>%s</th>
         <th>%s</th>
         <th>%s</th>
+        <th>%s</th>
         </tr>
         </thead>
         <tbody>

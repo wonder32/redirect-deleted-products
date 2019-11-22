@@ -36,11 +36,12 @@ class GhostPost
                 }
             }
 
+
+
             if ($add) {
                 $productInformation = new ProductInformation($id);
-
                 $redirectFile = fopen(wp_upload_dir()['basedir'] . '/redirect-deleted-products.txt', "a+");
-                fwrite($redirectFile, implode('|', $productInformation->getinformation()) . "\n");
+                fwrite($redirectFile, serialize($productInformation->getinformation()) . "\n");
                 fclose($redirectFile);
             }
         }

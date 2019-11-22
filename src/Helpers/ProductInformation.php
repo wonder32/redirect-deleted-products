@@ -42,7 +42,7 @@ class ProductInformation
                 $category_ids[] = $term;
             }
         }
-        $this->information['categories'] = implode('@', $category_ids);
+        $this->information['categories'] = $category_ids;
     }
 
     public function getShop()
