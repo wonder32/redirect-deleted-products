@@ -20,6 +20,7 @@ class AdminPage
         $this->filter = new Filter();
 
         $this->filter->add_action('admin_menu', $this, 'createAdminPage', '20');
+        $this->filter->add_action('admin_enqueue_scripts', $this, 'enqueueStyleScript', '20');
 
         $this->filter->run();
     }
@@ -34,6 +35,15 @@ class AdminPage
             'redirect-deleted-products',
             array($this, 'pageOutput') //function
         );
+    }
+
+    // enqueue style and scripts
+    public function enqueueStyleScript() {
+        $screen = get_current_screen();
+        if ($screen->id === 'tools_page_redirect-deleted-products'){
+            wp_enqueue_script( 'redirect-deleted-products-script', plugin_dir_url( REDIRECT_DELETED_PRODUCTS_FILE ) . 'assets/script.js', array('jquery'), '1.0' );
+            wp_enqueue_style( 'redirect-delted-products-style', plugin_dir_url( REDIRECT_DELETED_PRODUCTS_FILE ) . 'assets/style.css', '',  '1.0' );
+        }
     }
 
 
@@ -55,6 +65,7 @@ class AdminPage
         <th>%s</th>
         <th>%s</th>
         <th>%s</th>
+        <th>%s</th>
         </tr>
         </thead>
         <tbody>
@@ -66,7 +77,8 @@ TABLEHEAD;
             __('Old url', 'redirect-deleted-products'),
             __('Optional redirects', 'redirect-deleted-products'),
             __('Redirect to', 'redirect-deleted-products'),
-            __('301 / 302 / non', 'redirect-deleted-products')
+            __('301 / 302 / no redirect', 'redirect-deleted-products'),
+            __('Action', 'redirect-deleted-products')
         );
 
         $rows->printRows();

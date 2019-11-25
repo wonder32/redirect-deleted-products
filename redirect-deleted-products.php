@@ -37,7 +37,7 @@ if (is_admin()) {
     new GhostPost();
 // step 2 management page
     new AdminPage();
-}
-
+} else {
 // step 3 redirect if needed
 //    new PossibleRedirect();
+}
