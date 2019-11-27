@@ -3,7 +3,6 @@
 
 namespace RedirectDeletedProducts\Helpers;
 
-
 class ProductInformation
 {
     private $product;
@@ -17,8 +16,8 @@ class ProductInformation
         $this->getUrl();
         $this->getTerms();
         $this->getShop();
-        $this->information['redirect'] = '';
-        $this->information['status'] = '';
+        $this->getDefaultRedirect();
+        $this->information['status'] = '302';
     }
 
     public function getUrl()
@@ -53,5 +52,19 @@ class ProductInformation
     public function getInformation()
     {
         return $this->information;
+    }
+
+    public function getDefaultRedirect()
+    {
+        $term_ids = $this->information['categories'];
+        if (empty($term_ids) === false) {
+            $this->information['redirect'] = str_replace(
+                get_site_url(),
+                '',
+                get_term_link($term_ids[0], 'product_cat')
+            );
+        } else {
+            $this->information['redirect'] = $this->information['shop'];
+        }
     }
 }

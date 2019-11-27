@@ -3,7 +3,6 @@
 
 namespace RedirectDeletedProducts;
 
-
 use RedirectDeletedProducts\Helpers\ProductInformation;
 
 class GhostPost
@@ -24,19 +23,18 @@ class GhostPost
     public function saveGhost($id)
     {
         if (get_post_type($id) === 'product') {
-
             $redirectFile = file(wp_upload_dir()['basedir'] . '/redirect-deleted-products.txt', FILE_SKIP_EMPTY_LINES);
 
             $add = true;
-            foreach ($redirectFile as &$line) {
-                $line = explode('|', $line);
-                if ($line[0] === $id) {
-                    $add = false;
-                    break;
+            foreach ($redirectFile as $line) {
+                if (empty($line) === false) {
+                    $line = unserialize($line);
+                    if ($line['id'] === $id) {
+                        $add = false;
+                        break;
+                    }
                 }
             }
-
-
 
             if ($add) {
                 $productInformation = new ProductInformation($id);
@@ -46,5 +44,4 @@ class GhostPost
             }
         }
     }
-
 }

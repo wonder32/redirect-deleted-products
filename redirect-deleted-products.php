@@ -39,5 +39,5 @@ if (is_admin()) {
     new AdminPage();
 } else {
 // step 3 redirect if needed
-//    new PossibleRedirect();
+    new PossibleRedirect();
 }

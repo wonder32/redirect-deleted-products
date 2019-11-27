@@ -3,7 +3,6 @@
 
 namespace RedirectDeletedProducts\Helpers;
 
-
 class TableInformation
 {
 
@@ -30,7 +29,8 @@ class TableInformation
         }
     }
 
-    public function returnRow($line) {
+    public function returnRow($line)
+    {
         $elements = unserialize($line);
 
         $out = '<tr>';
@@ -50,13 +50,17 @@ class TableInformation
                     $out .= '</select></td>';
                     break;
                 case 'redirect':
-                    $out .= '<td><input id="redirect-' . $elements['id'] . '" class="input-redirect" value=""/></td>';
+                    $out .= '<td><input id="redirect-' . $elements['id'] . '" class="input-redirect" value="' . $elements['redirect'] . '"/></td>';
                     break;
                 case 'status':
+                    $status = $elements['status'];
+                    $options = ['none', '301', '302'];
                     $out .= '<td><select class="redirect" id="redirect-status-' . $elements['id'] . '">';
-                    $out .= '<option value = "none">none</option>';
-                    $out .= '<option value = "301">301</option>';
-                    $out .= '<option value = "302">302</option>';
+
+                    foreach ($options as $option) {
+                        $default = $status === $option ? 'selected="selected"' : '';
+                        $out .= '<option value="' . $option . '" ' . $default . '>' . $option . '</option>';
+                    }
                     $out .= '</select></td>';
                     break;
                 default:
@@ -72,7 +76,5 @@ class TableInformation
         $out .= '</tr>';
 
         return $out;
-
     }
-
 }
