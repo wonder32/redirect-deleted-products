@@ -9,6 +9,7 @@
 namespace RedirectDeletedProducts;
 
 use RedirectDeletedProducts\Helpers\TableInformation;
+use RedirectDeletedProducts\Helpers\UpdateInformation;
 
 class AdminPage
 {
@@ -21,7 +22,8 @@ class AdminPage
 
         $this->filter->add_action('admin_menu', $this, 'createAdminPage', '20');
         $this->filter->add_action('admin_enqueue_scripts', $this, 'enqueueStyleScript', '20');
-
+        $this->filter->add_action('wp_ajax_remember_setting', $this, 'updateInformation', '20');
+        $this->filter->add_action('wp_ajax_nopriv_remember_setting', $this, 'updateInformation', '20');
         $this->filter->run();
     }
 
@@ -38,11 +40,28 @@ class AdminPage
     }
 
     // enqueue style and scripts
-    public function enqueueStyleScript() {
+    public function enqueueStyleScript()
+    {
         $screen = get_current_screen();
-        if ($screen->id === 'tools_page_redirect-deleted-products'){
-            wp_enqueue_script( 'redirect-deleted-products-script', plugin_dir_url( REDIRECT_DELETED_PRODUCTS_FILE ) . 'assets/script.js', array('jquery'), '1.0' );
-            wp_enqueue_style( 'redirect-delted-products-style', plugin_dir_url( REDIRECT_DELETED_PRODUCTS_FILE ) . 'assets/style.css', '',  '1.0' );
+        if ($screen->id === 'tools_page_redirect-deleted-products') {
+            $value = array(
+                'ajax_url' => admin_url('admin-ajax.php'),
+                'nonce' => wp_create_nonce('ajax_nonce')
+            );
+            $root = plugin_dir_url(REDIRECT_DELETED_PRODUCTS_FILE) . 'assets/';
+            wp_enqueue_script(
+                'redirect-deleted-products-script',
+                $root . 'script.js',
+                array('jquery'),
+                '1.0'
+            );
+            wp_enqueue_style(
+                'redirect-deleted-products-style',
+                $root . 'style.css',
+                '',
+                '1.0'
+            );
+            wp_localize_script('redirect-deleted-products-script', 'redirect', $value);
         }
     }
 
@@ -95,7 +114,12 @@ TABLEFOOT;
 
 
         echo '</div>';
+    }
 
+    // handle update
+    public function updateInformation()
+    {
+        $update = new UpdateInformation();
+        $update->update();
     }
 }
-

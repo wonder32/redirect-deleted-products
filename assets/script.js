@@ -1,7 +1,34 @@
 (function($, root) {
 
+    'use strict';
+
+    // the ajax request function
+    // page clicked should match the words in all lines with (4)
+    function update_redirects(update_array) {
+        console.table(update_array);
+        $.ajax({
+            // we get my_plugin.ajax_url from php, ajax_url was the key the url the value
+            url : redirect.ajax_url,
+            type : 'post',
+            data : {
+                // remember_setting should match the last part of the hook (2) in the php file (4)
+                action : 'remember_setting',
+                nonce  : redirect.nonce,
+                update_array : update_array
+            },
+            // if successfull show the result in the console
+            // you could append the outcome in the html of the
+            // page
+            success : function( response ) {
+                console.log(response)
+            }
+        });
+
+    }
+
     function setAction(id) {
-        $('#action-' + id).html('<div id="update-' + id +'">Update</div>');
+        $('#action-' + id).html('<div id="update-' + id +'" class="update-button button">Update</div>');
+        $(('#row-' + id)).addClass('changed');
     }
 
     $(document).ready(function() {
@@ -26,7 +53,21 @@
                 $('#redirect-' + redirectId).val('');
                 $('#select-' + redirectId).val('select');
             }
-            redirectId(redirectId);
+            setAction(redirectId);
         });
+
+        $("#redirect-deleted-products-table").on("click", ".update-button", function(){
+            let updates = [];
+            $('#redirect-deleted-products-table tr.changed').each(function (i, row) {
+                let $row = $(row);
+                let id = $row.find('input.input-redirect').attr('id').replace('redirect-', '');
+                let val = $row.find('input.input-redirect').val();
+                let status = $row.find('select.redirect').val();
+                updates[id] = {val: val, status: status};
+            });
+            update_redirects(updates);
+        });
+
+
     });
 })(jQuery, this);

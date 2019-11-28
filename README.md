@@ -50,6 +50,7 @@ composer require puddinq/redirect-deleted-products
 ```
 
 ## changelog
+* 0.5.1 Update functions
 * 0.5 Building the 3 step functionality
 * 0.4 tested base plugin version
 * 0.3 17-11-2019 WordPress update functionality

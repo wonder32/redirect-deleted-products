@@ -36,7 +36,7 @@ class Plugin
 
     public function loadTextDomain()
     {
-        $result = load_plugin_textdomain(
+        load_plugin_textdomain(
             'redirect-deleted-products',
             false,
             dirname(
@@ -47,12 +47,11 @@ class Plugin
         );
     }
 
-    public function verifyRedirectFile() {
-
+    public function verifyRedirectFile()
+    {
         if (!file_exists(wp_upload_dir()['basedir'] . '/redirect-deleted-products.txt')) {
             $redirectFile = fopen(wp_upload_dir()['basedir'] . '/redirect-deleted-products.txt', "w");
             fclose($redirectFile);
         }
-
     }
 }

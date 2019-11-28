@@ -33,7 +33,7 @@ class TableInformation
     {
         $elements = unserialize($line);
 
-        $out = '<tr>';
+        $out = '<tr id="row-' . $elements['id'] . '">';
 
         foreach ($elements as $element => $value) {
             switch ($element) {
@@ -70,7 +70,7 @@ class TableInformation
 
         $out .= '<td>';
         $out .= '<div class="status" id="status-' . $elements['id'] . '">status</div>';
-        $out .= '<div class="action" id="action-' . $elements['id'] . '">action</div>';
+        $out .= '<div class="action" id="action-' . $elements['id'] . '"></div>';
         $out .= '</td>';
 
         $out .= '</tr>';
