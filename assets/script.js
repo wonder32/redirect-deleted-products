@@ -5,7 +5,6 @@
     // the ajax request function
     // page clicked should match the words in all lines with (4)
     function update_redirects(update_array) {
-        console.table(update_array);
         $.ajax({
             // we get my_plugin.ajax_url from php, ajax_url was the key the url the value
             url : redirect.ajax_url,
@@ -20,10 +19,18 @@
             // you could append the outcome in the html of the
             // page
             success : function( response ) {
-                console.log(response)
+                $.each(response, function(i, value) {
+                    setResult(value);
+                });
             }
         });
 
+    }
+
+    function setResult(value) {
+        let url = $('#url-' + value.id).html();
+        $('#action-' + value.id).html('<a id="updated" class="update-button button" href="' + url + '" target="_blank">check</a>');
+        $(('#row-' + value.id)).removeClass('changed').addClass('updated');
     }
 
     function setAction(id) {

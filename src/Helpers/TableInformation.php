@@ -64,7 +64,7 @@ class TableInformation
                     $out .= '</select></td>';
                     break;
                 default:
-                    $out .= "<td>{$value}</td>";
+                    $out .= "<td id='{$element}-{$elements['id']}'>{$value}</td>";
             }
         }
 
