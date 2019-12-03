@@ -25,9 +25,35 @@ class UpdateInformation
 
     public function update()
     {
+        $redirectFile = wp_upload_dir()['basedir'] . '/redirect-deleted-products.txt';
+        $redirectFileTmp = wp_upload_dir()['basedir'] . '/redirect-deleted-products.tmp';
 
+        $replaced = false;
 
+        $reading = fopen($redirectFile, 'r');
+        $writing = fopen($redirectFileTmp, 'w');
 
+        while (!feof($reading)) {
+            $line = fgets($reading);
+            $lineArray = unserialize($line);
+            foreach ($this->information['update_array'] as $information) {
+                if ($information['id'] === $lineArray['id']) {
+                    $lineArray['redirect'] = $information['redirect'];
+                    $lineArray['status'] = $information['status'];
+                    $line = serialize($lineArray);
+                    $replaced = true;
+                }
+            }
+            fputs($writing, $line);
+        }
+        fclose($reading);
+        fclose($writing);
+
+        if ($replaced) {
+            rename($writing, $reading);
+        } else {
+            unlink($writing);
+        }
         wp_send_json($this->information);
     }
 }

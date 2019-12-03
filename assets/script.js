@@ -59,12 +59,11 @@
         $("#redirect-deleted-products-table").on("click", ".update-button", function(){
             let updates = [];
             $('#redirect-deleted-products-table tr.changed').each(function (i, row) {
-                let no = 0;
                 let $row = $(row);
                 let id = $row.find('input.input-redirect').attr('id').replace('redirect-', '');
                 let val = $row.find('input.input-redirect').val();
                 let status = $row.find('select.redirect').val();
-                updates[no++] = {id: id, val: val, status: status};
+                updates[i] = {id: id, redirect: val, status: status};
             });
             update_redirects(updates);
         });
